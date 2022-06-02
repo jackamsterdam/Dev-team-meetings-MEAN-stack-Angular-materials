@@ -1,0 +1,11 @@
+<div>
+    <label>Select Dev Group:</label>
+    &nbsp;
+    <select (change)="getMeetings($event)">
+        <option selected disabled>Select...</option>
+        <option *ngFor="let t of teams" [value]="t._id">{{t.name}}</option>
+    </select>
+    <br><br>
+
+    <app-meeting-card *ngFor="let m of meetings" [meeting]="m" (deleteMe)="deleteThisCard($event)"></app-meeting-card>
+</div>

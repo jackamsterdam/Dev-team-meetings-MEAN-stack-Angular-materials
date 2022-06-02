@@ -1,0 +1,34 @@
+<div class="box">
+    <form (ngSubmit)="add()" #formBox="ngForm">
+        <h2>Add Meeting</h2>
+
+        <label>Dev Team:</label>
+        <select name="teamId" [(ngModel)]="meeting.teamId" #teamIdBox="ngModel" required>
+<option selected disabled>Select...</option>
+<option *ngFor="let t of teams" [value]="t._id">{{t.name}}</option>
+        </select>
+        <span *ngIf="teamIdBox.touched && teamIdBox.errors?.['required']">Missing Team</span>
+        
+        <label>Room:</label>
+        <input type="text" name="room" [(ngModel)]="meeting.room" #meetingBox="ngModel" required minlength="2" maxlength="100">
+        <span *ngIf="meetingBox.touched && meetingBox.errors?.['required']">Missing room</span>
+        <span *ngIf="meetingBox.touched && meetingBox.errors?.['minlength']">Room is too short</span>
+        <span *ngIf="meetingBox.touched && meetingBox.errors?.['maxlength']">Room is too long</span>
+
+        <label>Description:</label>
+        <input type="text" name="description" [(ngModel)]="meeting.description" #descriptionBox="ngModel" required minlength="2" maxlength="100">
+        <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['required']">Missing description</span>
+        <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['minlength']">Description is too short</span>
+        <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['maxlength']">Description is too long</span>
+
+        <label>Start Date:</label>
+        <input type="date" name="start-date" [(ngModel)]="meeting.startDate" #startDateBox="ngModel" required>
+        <span *ngIf="startDateBox.touched && startDateBox.errors?.['required']">Missing start date</span>
+
+        <label>End Date:</label>
+        <input type="date" name="end-date" [(ngModel)]="meeting.endDate" #endDateBox="ngModel" required>
+        <span *ngIf="endDateBox.touched && endDateBox.errors?.['required']">Missing end date</span>
+
+        <button mat-flat-button color="primary" [disabled]="formBox.invalid">Add</button>
+    </form>
+</div>
