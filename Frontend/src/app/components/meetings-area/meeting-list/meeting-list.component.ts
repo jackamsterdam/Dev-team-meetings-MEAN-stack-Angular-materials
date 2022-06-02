@@ -46,4 +46,7 @@ export class MeetingListComponent implements OnInit {
       this.notify.error(err)
     }
   }
+
+
+
 }

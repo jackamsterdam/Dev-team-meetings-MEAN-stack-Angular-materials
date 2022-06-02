@@ -22,19 +22,19 @@
         <span *ngIf="descriptionBox.touched && descriptionBox.errors?.['maxlength']">Description is too long</span>
 
         <label>Start Date:</label>
-        <input type="date" name="start-date" [(ngModel)]="meeting.startDate" #startDateBox="ngModel" required>
+        <input type="datetime-local" name="start-date" [(ngModel)]="meeting.startDate" #startDateBox="ngModel" required>
         <span *ngIf="startDateBox.touched && startDateBox.errors?.['required']">Missing start date</span>
 
         <label>End Date:</label>
-        <input type="date" name="end-date" [(ngModel)]="meeting.endDate" #endDateBox="ngModel" required>
+        <input type="datetime-local" name="end-date" [(ngModel)]="meeting.endDate" #endDateBox="ngModel" required>
         <span *ngIf="endDateBox.touched && endDateBox.errors?.['required']">Missing end date</span>
 
         <button mat-flat-button color="primary" [disabled]="formBox.invalid">Add</button>
-
+<!-- 
         <mat-form-field>
             <input   matInput [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
             <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #myDatePicker></mat-datepicker> 
-        </mat-form-field>
+        </mat-form-field> -->
     </form>
 </div>

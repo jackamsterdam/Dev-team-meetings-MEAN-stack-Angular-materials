@@ -2,8 +2,11 @@
     <span>Dev Group: {{meeting.team.name}}</span><br>
     <span>Room: {{meeting.room}}</span><br>
     <span>Description: {{meeting.description}}</span><br>
-    <span>start Date: {{meeting.startDate | date: " MMMM dd y"}}</span><br>
-    <span>start Date: {{meeting.endDate | date: "MMMM dd YYYY"}}</span><br>
+    <!-- <span>start Date: {{meeting.startDate | date: " MMMM dd y"}}</span><br> -->
+    <span>start Date: {{meeting.startDate | date: "medium"}}</span><br>
+    <!-- <span>start Date: {{meeting.endDate | date: "MMMM dd YYYY"}}</span><br> -->
+    <span>start Date: {{meeting.endDate | date: "medium"}}</span><br>
     <button (click)="deleteMeeting(meeting._id)">❌</button>
+    <span>Length of meeting: {{getMeetingDurationHours(meeting.startDate, meeting.endDate)}} hrs</span>
 
 </div>
