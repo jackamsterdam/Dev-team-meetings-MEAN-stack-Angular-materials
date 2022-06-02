@@ -30,5 +30,11 @@
         <span *ngIf="endDateBox.touched && endDateBox.errors?.['required']">Missing end date</span>
 
         <button mat-flat-button color="primary" [disabled]="formBox.invalid">Add</button>
+
+        <mat-form-field>
+            <input   matInput [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #myDatePicker></mat-datepicker> 
+        </mat-form-field>
     </form>
 </div>

@@ -11,7 +11,7 @@ import { NotifyService } from 'src/app/services/notify.service';
   styleUrls: ['./add-meeting.component.scss']
 })
 export class AddMeetingComponent implements OnInit {
-  meeting = new MeetingModel
+  meeting = new MeetingModel()
   teams: TeamModel[]
   constructor(private notify: NotifyService, private meetingsService: MeetingsService, private router: Router) { }
 
@@ -32,5 +32,11 @@ export class AddMeetingComponent implements OnInit {
       this.notify.error(err)
     }
   }
+
+
+  // minDate = new Date()
+  minDate = this.meeting.startDate
+// maxDate = new Date(2022, 8, 10)
+maxDate = this.meeting.endDate
 
 }
